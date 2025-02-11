@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: "25 * * * *"
+    - cron: "*/10 * * * *"
 
 env:
   CARGO_TERM_COLOR: always
@@ -17,5 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Periodically check Natsuki
+    - name: Cache compiled code
+      uses: actions/cache@v4
+      id: cache-rust
+      with:
+        path: ${{ github.workspace }}/target/
+        key: ${{ runner.os }}-build-${{ hashFiles('**/Cargo.lock') }}
+    - name: Run periodically
       run: cargo run --release --verbose
