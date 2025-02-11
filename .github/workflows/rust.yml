@@ -22,6 +22,6 @@ jobs:
       id: cache-rust
       with:
         path: ${{ github.workspace }}/target/
-        key: ${{ runner.os }}-build-${{ hashFiles('**/Cargo.lock') }}
+        key: ${{ hashFiles('/Cargo.lock', '/src/**') }}
     - name: Run periodically
       run: cargo run --release --verbose
