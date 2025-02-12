@@ -1,7 +1,7 @@
 Watchdog for Natsuki
 ====================
 
-Watchdog that reminds me when Natsuki goes offline
+Watchdog that reminds me when [Natsuki](https://github.com/jdh8/natsuki) goes offline
 
 ## Settings
 
