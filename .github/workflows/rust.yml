@@ -1,4 +1,4 @@
-name: Rust
+name: Rust deployment
 on:
   push:
     branches: [ "main" ]
@@ -13,7 +13,7 @@ env:
   MENTION: ${{ secrets.MENTION }}
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -23,5 +23,5 @@ jobs:
       with:
         path: ${{ github.workspace }}/target/
         key: ${{ hashFiles('Cargo.lock', 'src/**') }}
-    - name: Run periodically
+    - name: Run optimized code
       run: cargo run --release --verbose
