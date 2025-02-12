@@ -7,5 +7,4 @@ Watchdog that reminds me when [Natsuki](https://github.com/jdh8/natsuki) goes of
 
 Watchdog reads environment variables:
 
-- `WEBHOOK`: The (Discord) webhook to send message
-- `MENTION`: Mention me for notification
+- `WEBHOOK`: The Discord webhook to send message

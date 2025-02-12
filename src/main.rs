@@ -12,7 +12,7 @@ async fn main() -> anyhow::Result<()> {
     if let Err(error) = ping().await {
         client
             .post(var("WEBHOOK")?)
-            .json(&json!({ "content": format!("{}: {error:#?}", var("MENTION")?) }))
+            .json(&json!({ "content": format!("{error:#?}") }))
             .send()
             .await?;
     }
