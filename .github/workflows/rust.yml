@@ -22,5 +22,8 @@ jobs:
       with:
         path: ${{ github.workspace }}/target/
         key: ${{ hashFiles('Cargo.lock', 'src/**') }}
-    - name: Run optimized code
-      run: cargo run --release --verbose
+    - if: ${{ steps.cache-rust.outputs.cache-hit != 'true' }}
+      name: Build
+      run: cargo build --release --verbose
+    - name: Run
+      run: target/release/watchdog
